@@ -1,4 +1,4 @@
-package edu.uade.fgeorgescu;
+package edu.uade.tpo;
 
 public class Main {
 
