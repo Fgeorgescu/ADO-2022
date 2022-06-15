@@ -12,7 +12,7 @@ public class PagoRealizado {
   private LocalDateTime fechaEmision;
   private LocalDateTime fechaPago;
 
-  public PagoRealizado(double monto, LocalDateTime fechaEmisión) {
+  public PagoRealizado(double monto) {
     this.monto = monto;
     this.fechaEmision = LocalDateTime.now();
     this.estado = new PagoPendiente(this);

@@ -3,6 +3,7 @@
 ## v0.0.5
 - Agregamos gastos únicos y recurrentes
 - Agregamos agregarPeriodo, agregarGasto, agregarGastoRecurrente
+
 ## v0.0.4
 - Agregamos PagoRealizado
 - Agregamos estados de pagos y comportamiento

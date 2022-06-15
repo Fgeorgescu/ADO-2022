@@ -14,15 +14,15 @@ import java.util.List;
 public class Consorcio {
 
   private String idConsorcio;
-  private CuentaBancaria cuentaBancaria;
+  private String cbu;
   private List<UnidadFuncional> unidadesFuncionales;
   private List<Periodo> periodos;
   private Periodo periodoActivo;
   private List<Gasto> gastosRecurrentes;
 
-  public Consorcio(String idConsorcio, CuentaBancaria cuentaBancaria) {
+  public Consorcio(String idConsorcio, String cbu) {
     this.idConsorcio = idConsorcio;
-    this.cuentaBancaria = cuentaBancaria;
+    this.cbu = cbu;
     unidadesFuncionales = new ArrayList<>();
     periodos = new ArrayList<>();
     gastosRecurrentes = new ArrayList<>();
@@ -32,6 +32,8 @@ public class Consorcio {
    * Guarda el último periodo activo en el historial y crea un nuevo periodo activo.
    * Esto introduce la posibilidad de agregar estados al periodo
    * (por ejemplo activo, pendienteCalculo, cobroIncompleto, cobro completo, etc.)
+   *
+   * Toma los gastos recurrentes y los agrega al periodo activo
    */
   void abrirPeriodo() {
     if (periodoActivo != null) periodos.add(this.periodoActivo);
@@ -39,17 +41,28 @@ public class Consorcio {
     periodoActivo = new Periodo(LocalDateTime.now().getMonth(), LocalDateTime.now().getYear());
 
     for (Gasto gasto : gastosRecurrentes) {
+      // Dada alguna propiedad del gasto recurrente, podemos filtrar si lo agregamos o no
+      // Por ejemplo, si los gastos fueran bimestraoes, cuatrimestrales, podríamos validarlo acá
       periodoActivo.agregarGasto(gasto);
     }
   }
 
+  /**
+   * Añade gastos al periodo activo
+   * @param monto
+   * @param tipoExpensa
+   */
   void agregarGastoUnico(double monto, TipoExpensa tipoExpensa) {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
     periodoActivo.agregarGasto(new GastoUnico(monto, tipoExpensa, persona));
   }
 
-
+  /**
+   * Añade gastos recurrentes. Si no existen, se agregan al periodo activo tmbn
+   * @param monto
+   * @param tipoExpensa
+   */
   void agregarGastoRecurrente(double monto, TipoExpensa tipoExpensa) {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
@@ -61,7 +74,19 @@ public class Consorcio {
     this.periodoActivo.agregarGasto(gastoRecurrente);
   }
 
+  /**
+   * Devuelve el periodo activo
+   * @return
+   */
   public Periodo getPeriodoActivo() {
     return periodoActivo;
+  }
+
+  public List<UnidadFuncional> getUnidadesFuncionales() {
+    return unidadesFuncionales;
+  }
+
+  public String getCbu() {
+    return cbu;
   }
 }
