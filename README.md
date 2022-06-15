@@ -4,7 +4,7 @@
 - Agrega el notificador
 - Agregamos estrategias
 - Agregamos adapters de las estrategias
-- 
+
 ![img.png](./assets/notificador.png)
 
 ## v0.0.1
