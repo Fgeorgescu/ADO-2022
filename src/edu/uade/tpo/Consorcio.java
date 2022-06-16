@@ -53,6 +53,7 @@ public class Consorcio {
    * @param tipoExpensa
    */
   public void agregarGastoUnico(double monto, TipoExpensa tipoExpensa) {
+    if (periodoActivo == null) abrirPeriodo();
     Persona persona = SessionUtils.getLoggedAdministrator();
 
     periodoActivo.agregarGasto(new GastoUnico(monto, tipoExpensa, persona));
@@ -69,9 +70,10 @@ public class Consorcio {
     Gasto gastoRecurrente = new GastoRecurrente(monto, tipoExpensa, persona);
     if (this.gastosRecurrentes.contains(gastoRecurrente)) {
       System.out.println("Ya se encontró un gasto con las mismas caracteristicas. Evitamos duplicados");
+      return;
     }
+    agregarGastoUnico(monto, tipoExpensa);
     this.gastosRecurrentes.add(gastoRecurrente);
-    this.periodoActivo.agregarGasto(gastoRecurrente);
   }
 
   /**
