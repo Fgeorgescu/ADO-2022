@@ -35,7 +35,7 @@ public class Consorcio {
    *
    * Toma los gastos recurrentes y los agrega al periodo activo
    */
-  void abrirPeriodo() {
+  public void abrirPeriodo() {
     if (periodoActivo != null) periodos.add(this.periodoActivo);
 
     periodoActivo = new Periodo(LocalDateTime.now().getMonth(), LocalDateTime.now().getYear());
@@ -52,7 +52,7 @@ public class Consorcio {
    * @param monto
    * @param tipoExpensa
    */
-  void agregarGastoUnico(double monto, TipoExpensa tipoExpensa) {
+  public void agregarGastoUnico(double monto, TipoExpensa tipoExpensa) {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
     periodoActivo.agregarGasto(new GastoUnico(monto, tipoExpensa, persona));
@@ -63,7 +63,7 @@ public class Consorcio {
    * @param monto
    * @param tipoExpensa
    */
-  void agregarGastoRecurrente(double monto, TipoExpensa tipoExpensa) {
+  public void agregarGastoRecurrente(double monto, TipoExpensa tipoExpensa) {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
     Gasto gastoRecurrente = new GastoRecurrente(monto, tipoExpensa, persona);

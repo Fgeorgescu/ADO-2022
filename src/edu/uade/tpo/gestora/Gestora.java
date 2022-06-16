@@ -44,6 +44,8 @@ public class Gestora {
       notificar(uf, expensa);
     }
 
+    // Como calculamos las expensas, abrimos un nuevo periodo
+    consorcio.abrirPeriodo();
   }
 
   private void notificar(UnidadFuncional uf, PagoRealizado expensa) {
