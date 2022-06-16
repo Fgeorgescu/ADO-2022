@@ -9,7 +9,6 @@ import edu.uade.tpo.notificador.Notificador;
 import edu.uade.tpo.pago.PagoRealizado;
 import edu.uade.tpo.personas.Persona;
 import edu.uade.tpo.utils.StrategyUtil;
-import java.util.List;
 
 // Puede ser singleton
 public class Gestora {
@@ -20,6 +19,7 @@ public class Gestora {
 
   public Gestora(Consorcio consorcio) {
     this.consorcio = consorcio;
+    this.notificador = new Notificador();
   }
 
   void calcularExpensas(Persona administrador) {
@@ -41,14 +41,15 @@ public class Gestora {
       // El nombre PagoRealizado quedó confuso.
       PagoRealizado expensa = new PagoRealizado(montoExpensa);
 
-      notificar(uf.getPropietarios(), expensa);
-      notificar(uf.getInquilinos(), expensa);
+      notificar(uf, expensa);
     }
 
+    // Como calculamos las expensas, abrimos un nuevo periodo
+    consorcio.abrirPeriodo();
   }
 
-  private void notificar(List<Persona> personas, PagoRealizado expensa) {
-    for (Persona p : personas) {
+  private void notificar(UnidadFuncional uf, PagoRealizado expensa) {
+    for (Persona p : uf.getPropietarios()) {
       notificador.setStrategy(StrategyUtil.getNotificationStrategy(p.getDefecto().getTipoNotificacion()));
 
       // Se puede agregar cuando vence, cuando se generó, etc etc etc
