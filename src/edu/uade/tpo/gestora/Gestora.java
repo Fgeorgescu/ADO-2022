@@ -19,6 +19,7 @@ public class Gestora {
 
   public Gestora(Consorcio consorcio) {
     this.consorcio = consorcio;
+    this.notificador = new Notificador();
   }
 
   void calcularExpensas(Persona administrador) {
