@@ -13,7 +13,6 @@ public class Persona {
 
   private String nombre;
   private String apellido;
-
   public Persona(String nombre, String apellido, String email, String telefono) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -44,7 +43,7 @@ public class Persona {
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }
-
+  
   public void agregarNotificación(boolean defecto, TipoNotificacion tipoNotificacion) {
     // Si la nueva es por defecto, buscamos y eliminamos los otros por defecto.
     // Este MediosNotificación podría ser un nuevo componente que encapsule la busqueda de medios por defecto, etc.

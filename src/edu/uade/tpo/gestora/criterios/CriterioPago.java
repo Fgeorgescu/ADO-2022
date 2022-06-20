@@ -14,6 +14,5 @@ public abstract class CriterioPago {
     // TODO: Iterar por el período y calcular gastos
     return 0.0;
   }
-
   public abstract double divisionExpensas(UnidadFuncional unidadFuncional, double gasto, double saldo);
 }

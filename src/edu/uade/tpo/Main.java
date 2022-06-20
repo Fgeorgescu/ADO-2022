@@ -13,7 +13,5 @@ public class Main {
 
         UnidadFuncional uf1 = new UnidadFuncional(0.1, Arrays.asList(propietario1));
         uf1.agregarInquilino(inquilino1);
-
-
     }
 }

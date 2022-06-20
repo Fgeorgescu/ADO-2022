@@ -10,6 +10,7 @@ import edu.uade.tpo.pago.PagoRealizado;
 import edu.uade.tpo.personas.Persona;
 import edu.uade.tpo.utils.StrategyUtil;
 
+
 // Puede ser singleton
 public class Gestora {
 
@@ -20,6 +21,7 @@ public class Gestora {
   public Gestora(Consorcio consorcio) {
     this.consorcio = consorcio;
     this.notificador = new Notificador();
+
   }
 
   void calcularExpensas(Persona administrador) {
