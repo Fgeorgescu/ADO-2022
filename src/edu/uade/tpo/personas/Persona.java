@@ -3,7 +3,6 @@ package edu.uade.tpo.personas;
 public class Persona {
   private String email;
   private String telefono;
-
   private String nombre;
   private String apellido;
 
