@@ -1,22 +1,27 @@
 package edu.uade.tpo;
 
-import edu.uade.tpo.expensas.Expensa;
+import edu.uade.tpo.pagos.Pago;
 import edu.uade.tpo.personas.Persona;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UnidadFuncional {
 
+
   private double pocentajeDePago;
   private List<Persona> propietarios;
   private List<Persona> inquilinos;
-  private List<Expensa> expensas;
+  private List<Pago> pagos;
 
   public UnidadFuncional(double pocentajeDePago, List<Persona> propietarios) {
     this.pocentajeDePago = pocentajeDePago;
     this.propietarios = propietarios;
     this.inquilinos = new ArrayList<>();
-    this.expensas = new ArrayList<>();
+    this.pagos = new ArrayList<>();
+  }
+
+  public double getPocentajeDePago() {
+    return pocentajeDePago;
   }
 
   public void agregarInquilino(Persona inquilino) {
@@ -39,7 +44,7 @@ public class UnidadFuncional {
     return inquilinos;
   }
 
-  public void agregarExpensa(Expensa expensa) {
-    this.expensas = expensas;
+  public void agregarPago(Pago pago) {
+    this.pagos.add(pago);
   }
 }

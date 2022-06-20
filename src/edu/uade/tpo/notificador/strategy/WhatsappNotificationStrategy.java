@@ -14,8 +14,7 @@ public class WhatsappNotificationStrategy implements NotificationStrategy {
 
   @Override
   public void enviar(Mensaje mensaje) {
-    // TODO: Terminar el tema del target user
-    WhatsappMessageDTO whatsappMessage = new WhatsappMessageDTO(mensaje.getMensaje(), "");
+    WhatsappMessageDTO whatsappMessage = new WhatsappMessageDTO(mensaje.getMensaje(), mensaje.getPersona().getTelefono());
 
     adapterWhatsapp.enviar(whatsappMessage);
   }

@@ -1,18 +1,43 @@
 package edu.uade.tpo.gestora.criterios;
 
+import edu.uade.tpo.Consorcio;
+import edu.uade.tpo.CuentaBancaria;
 import edu.uade.tpo.Periodo;
 import edu.uade.tpo.UnidadFuncional;
+import edu.uade.tpo.gastos.Gasto;
+import edu.uade.tpo.notificador.Notificador;
+import edu.uade.tpo.pagos.Pago;
+import edu.uade.tpo.personas.Persona;
+import edu.uade.tpo.utils.StrategyUtil;
+
+import java.util.List;
 
 public abstract class CriterioPago {
+  private Notificador notificador;
 
+  public CriterioPago() {
+    this.notificador = new Notificador();
+  }
   public double calcularGasto(Periodo periodo) {
-    // TODO: Iterar por el período y calcular gastos
-    return 0.0;
+    List<Gasto> gastos = periodo.obtenerGastos();
+    return gastos.stream().reduce(0.0, (total,gasto)->
+      total+gasto.getMonto(), Double::sum
+    );
   }
 
-  public double obtenerSaldo(String cbu) {
-    // TODO: Iterar por el período y calcular gastos
-    return 0.0;
+  public double obtenerSaldo(CuentaBancaria cuenta) {
+    return cuenta.consultarSaldo();
   }
-  public abstract double divisionExpensas(UnidadFuncional unidadFuncional, double gasto, double saldo);
+
+  public abstract void divisionExpensas(Consorcio consorcio);
+
+  void notificar(UnidadFuncional uf, Pago pago) {
+    for (Persona p : uf.getPropietarios()) {
+      notificador.setStrategy(StrategyUtil.getNotificationStrategy(p.getDefecto().getTipoNotificacion()));
+
+      // Se puede agregar cuando vence, cuando se generó, etc etc etc
+      notificador.enviar(p, "Se registró una nueva expensa por el monto de: " + pago.getMonto());
+    }
+  }
+
 }

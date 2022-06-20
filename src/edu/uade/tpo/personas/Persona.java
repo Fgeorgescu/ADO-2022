@@ -43,17 +43,22 @@ public class Persona {
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }
-  
+
+  List<MedioNotificacion> getMediosNotificationDefecto() {
+    List<MedioNotificacion> mediosPorDefecto =
+            mediosNotificacion.stream().filter(MedioNotificacion::isDefecto).collect(Collectors.toList());
+    return mediosPorDefecto;
+  }
+
   public void agregarNotificación(boolean defecto, TipoNotificacion tipoNotificacion) {
     // Si la nueva es por defecto, buscamos y eliminamos los otros por defecto.
-    // Este MediosNotificación podría ser un nuevo componente que encapsule la busqueda de medios por defecto, etc.
+    // Este MediosNotificación podría ser un nuevo componente que encapsule la búsqueda de medios por defecto, etc.
     // De esta manera aislamos aún más estas responsabilidades, y no quedan en Persona.
 
-    //Code smell, vamos a tener este snipet duplicado, se soluciona con lo que comenté más arriba
+    //Code smell, vamos a tener este snippet duplicado, se soluciona con lo que comenté más arriba
 
     if (defecto) {
-      List<MedioNotificacion> mediosPorDefecto =
-          mediosNotificacion.stream().filter(MedioNotificacion::isDefecto).collect(Collectors.toList());
+      List<MedioNotificacion> mediosPorDefecto = getMediosNotificationDefecto();
 
       for (MedioNotificacion mn : mediosPorDefecto) {
         mn.setDefecto(false);
@@ -64,8 +69,7 @@ public class Persona {
   }
 
   public MedioNotificacion getDefecto() {
-      List<MedioNotificacion> mediosPorDefecto =
-          mediosNotificacion.stream().filter(MedioNotificacion::isDefecto).collect(Collectors.toList());
+    List<MedioNotificacion> mediosPorDefecto = getMediosNotificationDefecto();
 
       return mediosPorDefecto.stream().findFirst().orElseThrow(
           () -> new RuntimeException("No hay medio por defecto.")
