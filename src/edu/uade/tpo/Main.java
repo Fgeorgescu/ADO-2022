@@ -20,9 +20,9 @@ public class Main {
         Persona inquilino1 = new Persona("Inquilino","Primero", "inquilino1@uade.edu.ar", "+5411112222");
         Persona propietario2 = new Persona("Propietario","Primero","propietario1@uade.edu.ar", "+5411111111");
 
-        propietario1.agregarNotificación(true, TipoNotificacion.EMAIL);
-        inquilino1.agregarNotificación(true, TipoNotificacion.WHATSAPP);
-        propietario2.agregarNotificación(true, TipoNotificacion.SMS);
+        propietario1.agregarNotificacion(true, TipoNotificacion.EMAIL);
+        inquilino1.agregarNotificacion(true, TipoNotificacion.WHATSAPP);
+        propietario2.agregarNotificacion(true, TipoNotificacion.SMS);
 
         UnidadFuncional uf1 = new UnidadFuncional(0.7, Arrays.asList(propietario1), "Unidad funcional 1");
         UnidadFuncional uf2 = new UnidadFuncional(0.3, Arrays.asList(propietario2), "Unidad funcional 2");
@@ -50,9 +50,9 @@ public class Main {
         Persona inquilino1 = new Persona("Inquilino","Primero", "inquilino1@uade.edu.ar", "+5411112222");
         Persona propietario2 = new Persona("Propietario","Primero","propietario1@uade.edu.ar", "+5411111111");
 
-        propietario1.agregarNotificación(true, TipoNotificacion.EMAIL);
-        inquilino1.agregarNotificación(true, TipoNotificacion.WHATSAPP);
-        propietario2.agregarNotificación(true, TipoNotificacion.SMS);
+        propietario1.agregarNotificacion(true, TipoNotificacion.EMAIL);
+        inquilino1.agregarNotificacion(true, TipoNotificacion.WHATSAPP);
+        propietario2.agregarNotificacion(true, TipoNotificacion.SMS);
 
         UnidadFuncional uf1 = new UnidadFuncional(0.7, Arrays.asList(propietario1), "Unidad funcional 1");
         UnidadFuncional uf2 = new UnidadFuncional(0.3, Arrays.asList(propietario2), "Unidad funcional 2");
@@ -80,9 +80,9 @@ public class Main {
         Persona inquilino1 = new Persona("Inquilino","Primero", "inquilino1@uade.edu.ar", "+5411112222");
         Persona propietario2 = new Persona("Propietario","Primero","propietario1@uade.edu.ar", "+5411111111");
 
-        propietario1.agregarNotificación(true, TipoNotificacion.EMAIL);
-        inquilino1.agregarNotificación(true, TipoNotificacion.WHATSAPP);
-        propietario2.agregarNotificación(true, TipoNotificacion.SMS);
+        propietario1.agregarNotificacion(true, TipoNotificacion.EMAIL);
+        inquilino1.agregarNotificacion(true, TipoNotificacion.WHATSAPP);
+        propietario2.agregarNotificacion(true, TipoNotificacion.SMS);
 
         UnidadFuncional uf1 = new UnidadFuncional(0.7, Arrays.asList(propietario1), "Unidad funcional 1");
         UnidadFuncional uf2 = new UnidadFuncional(0.3, Arrays.asList(propietario2), "Unidad funcional 2");

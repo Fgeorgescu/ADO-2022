@@ -53,7 +53,7 @@ public class Persona {
     return mediosPorDefecto;
   }
 
-  public void agregarNotificación(boolean defecto, TipoNotificacion tipoNotificacion) {
+  public void agregarNotificacion(boolean defecto, TipoNotificacion tipoNotificacion) {
     // Si la nueva es por defecto, buscamos y eliminamos los otros por defecto.
     // Este MediosNotificación podría ser un nuevo componente que encapsule la búsqueda de medios por defecto, etc.
     // De esta manera aislamos aún más estas responsabilidades, y no quedan en Persona.
