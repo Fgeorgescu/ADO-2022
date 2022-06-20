@@ -17,7 +17,7 @@ public class PagoCompletoDeGastos extends CriterioPago {
       double montoExpensa = gasto * porcentaje;
 
       Pago pago = new Pago(montoExpensa);
-      new LogUtil().logMessage("el monto a pagar por %s es %f", uf.getId(), montoExpensa);
+      new LogUtil().logMessage("el monto a pagar por %s es $%.2f", uf.getId(), montoExpensa);
       uf.agregarPago(pago);
       notificar(uf, pago);
     }

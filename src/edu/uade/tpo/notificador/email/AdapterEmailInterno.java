@@ -4,6 +4,6 @@ package edu.uade.tpo.notificador.email;
 public class AdapterEmailInterno implements AdapterEmail {
   @Override
   public void enviar(String mailBody, String targetEmail) {
-    System.out.printf("Sending mail to %s. Body is %s%n", targetEmail, mailBody);
+    System.out.printf("Se envia el email a  %s. Cuerpo es %s%n", targetEmail, mailBody);
   }
 }

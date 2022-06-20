@@ -18,7 +18,7 @@ public class Notificador {
 
   public void enviar(Persona persona, String mensaje) {
     if (strategy == null) {
-      System.out.println("No hay notificador seleccionado, por favor configure uno antes de enviar una notificación.");
+      System.out.println("No hay notificador seleccionado, por favor configure uno antes de enviar una notificaci\u00f3n.");
     }
 
     strategy.enviar(new Mensaje(mensaje, persona));

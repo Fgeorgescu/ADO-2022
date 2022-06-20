@@ -17,16 +17,16 @@ public class PagoCompletoConFondosDeReserva extends CriterioPago {
     double gasto = calcularGasto(consorcio.getPeriodoActivo());
     double totalAPagar = gasto - saldo;
 
-    new LogUtil().logMessage("el saldo disponible es %f", saldo);
-    new LogUtil().logMessage("el gasto es %f", gasto);
-    new LogUtil().logMessage("el total a pagar es %f", totalAPagar);
+    new LogUtil().logMessage("el saldo disponible es $%.2f", saldo);
+    new LogUtil().logMessage("el gasto es $%.2f", gasto);
+    new LogUtil().logMessage("el total a pagar es $%.2f", totalAPagar);
 
     for (UnidadFuncional uf: consorcio.getUnidadesFuncionales()) {
       double porcentaje = uf.getPocentajeDePago();
 
       double montoExpensa = Math.max(totalAPagar, 0) * porcentaje;
 
-      new LogUtil().logMessage("el monto a pagar por %s es %f", uf.getId(), montoExpensa);
+      new LogUtil().logMessage("el monto a pagar por %s es $%.2f", uf.getId(), montoExpensa);
       Pago pago = new Pago(montoExpensa);
 
       uf.agregarPago(pago);

@@ -40,7 +40,7 @@ public abstract class CriterioPago {
       notificador.setStrategy(StrategyUtil.getNotificationStrategy(p.getDefecto().getTipoNotificacion()));
 
       // Se puede agregar cuando vence, cuando se generó, etc etc etc
-      notificador.enviar(p, "Se registró una nueva expensa por el monto de: " + pago.getMonto());
+      notificador.enviar(p, "Se registr\u00f3 una nueva expensa por el monto de: $" + pago.getMonto());
     }
 
     for (Persona p: uf.getInquilinos()) {

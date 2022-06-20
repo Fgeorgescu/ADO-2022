@@ -31,7 +31,7 @@ public class UnidadFuncional {
   public void agregarInquilino(Persona inquilino) {
     inquilinos.add(inquilino);
 
-    new LogUtil().logMessage("se agregó al inquilino %s", inquilino.getNombre());
+    new LogUtil().logMessage("se agreg\u00f3 al inquilino %s", inquilino.getNombre());
   }
 
   public void sacarInquilino(String name) {

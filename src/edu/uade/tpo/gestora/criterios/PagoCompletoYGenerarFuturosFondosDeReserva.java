@@ -17,8 +17,8 @@ public class PagoCompletoYGenerarFuturosFondosDeReserva extends CriterioPago {
 
       double montoExpensa = gasto * porcentaje;
       double agregadoParaFondo = montoExpensa * 0.1;
-      new LogUtil().logMessage("el monto a pagar por %s es %f", uf.getId(), montoExpensa);
-      new LogUtil().logMessage("el monto a pagar para agregar al fondo de reserva es %f", agregadoParaFondo);
+      new LogUtil().logMessage("el monto a pagar por %s es $%.2f", uf.getId(), montoExpensa);
+      new LogUtil().logMessage("el monto a pagar para agregar al fondo de reserva es $%.2f", agregadoParaFondo);
 
       Pago pago = new Pago(montoExpensa + agregadoParaFondo);
 

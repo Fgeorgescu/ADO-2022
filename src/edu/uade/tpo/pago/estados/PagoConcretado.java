@@ -18,7 +18,7 @@ public class PagoConcretado implements EstadoExpensa {
 
   @Override
   public void saldar() {
-    System.out.println("El pago fue concretado el día %s"
+    System.out.println("El pago fue concretado el d\u00eda %s"
         + this.contexto.getFechaPago().format(DateTimeFormatter.ofPattern("yyyy MM dd")));
   }
 }

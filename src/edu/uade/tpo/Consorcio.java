@@ -56,10 +56,10 @@ public class Consorcio {
 
     periodoActivo.agregarGasto(new Gasto(nombre, monto, tipoExpensa, persona));
 
-    new LogUtil().logMessage("se agregó gasto único '%s' con monto $%f al período activo", nombre, monto, tipoExpensa.name());
+    new LogUtil().logMessage("se agreg\u00f3 gasto \u00fanico '%s' con monto $%.2f al per\u00edodo activo", nombre, monto, tipoExpensa.name());
   }
 
-  /**
+  /**H
    * Añade gastos recurrentes. Si no existen, se agregan al periodo activo tmbn
    * @param monto
    * @param tipoExpensa
@@ -69,14 +69,14 @@ public class Consorcio {
 
     Gasto gastoRecurrente = new Gasto(nombre, monto, tipoExpensa, persona);
     if (this.gastosRecurrentes.contains(gastoRecurrente)) {
-      System.out.println("Ya se encontró un gasto con las mismas caracteristicas. Evitamos duplicados");
+      System.out.println("Ya se encontr\u00f3 un gasto con las mismas caracteristicas. Evitamos duplicados");
       return;
     }
     agregarGastoUnico(nombre, monto, tipoExpensa);
     this.gastosRecurrentes.add(gastoRecurrente);
 
 
-    new LogUtil().logMessage("se agregó gasto recurrente '%s' con monto $%f al período activo", nombre, monto);
+    new LogUtil().logMessage("se agreg\u00f3 gasto recurrente '%s' con monto $%.2f al per\u00edodo activo", nombre, monto);
   }
 
   /**

@@ -19,12 +19,12 @@ public class CuentaBancaria {
 
     public void agregarSaldo(double monto) {
         this.saldo += monto;
-        new LogUtil().logMessage("se agregó %f al saldo. Salto total: %f", monto, this.saldo);
+        new LogUtil().logMessage("se agreg\u00f3 $%.2f al saldo. Salto total: $%.2f", monto, this.saldo);
     }
 
     public void restarSaldo(double monto) {
         this.saldo -= monto;
-        new LogUtil().logMessage("se restó %f al saldo. Salto total: %f", monto, this.saldo);
+        new LogUtil().logMessage("se rest\u00f3 $%.2f al saldo. Salto total: $%.2f", monto, this.saldo);
 
     }
 }

@@ -40,7 +40,7 @@ public class Gestora {
 
 
   public void seleccionarCriterioPago(CriterioPago criterioPago) {
-    new LogUtil().logMessage("se seleccionó %s como criterio de pago", criterioPago.getClass().getSimpleName());
+    new LogUtil().logMessage("se seleccion\u00f3 %s como criterio de pago", criterioPago.getClass().getSimpleName());
     this.criterioPago = criterioPago;
 
   }
