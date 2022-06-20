@@ -30,4 +30,16 @@ public class UnidadFuncional {
   public void sacarInquilino(Persona inquilino) {
     inquilinos.removeIf(i -> i.getNombre().equalsIgnoreCase(inquilino.getNombre()));
   }
+
+  public List<Persona> getPropietarios() {
+    return propietarios;
+  }
+
+  public List<Persona> getInquilinos() {
+    return inquilinos;
+  }
+
+  public void agregarExpensa(Expensa expensa) {
+    this.expensas = expensas;
+  }
 }

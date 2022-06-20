@@ -10,5 +10,9 @@ public abstract class CriterioPago {
     return 0.0;
   }
 
+  public double obtenerSaldo(String cbu) {
+    // TODO: Iterar por el período y calcular gastos
+    return 0.0;
+  }
   public abstract double divisionExpensas(UnidadFuncional unidadFuncional, double gasto, double saldo);
 }
