@@ -3,6 +3,7 @@ package edu.uade.tpo.gestora.criterios;
 import edu.uade.tpo.Consorcio;
 import edu.uade.tpo.UnidadFuncional;
 import edu.uade.tpo.pagos.Pago;
+import edu.uade.tpo.utils.LogUtil;
 
 // Puede ser singleton
 public class PagoCompletoYGenerarFuturosFondosDeReserva extends CriterioPago {
@@ -16,6 +17,8 @@ public class PagoCompletoYGenerarFuturosFondosDeReserva extends CriterioPago {
 
       double montoExpensa = gasto * porcentaje;
       double agregadoParaFondo = montoExpensa * 0.1;
+      new LogUtil().logMessage("el monto a pagar por %s es %f", uf.getId(), montoExpensa);
+      new LogUtil().logMessage("el monto a pagar para agregar al fondo de reserva es %f", agregadoParaFondo);
 
       Pago pago = new Pago(montoExpensa + agregadoParaFondo);
 

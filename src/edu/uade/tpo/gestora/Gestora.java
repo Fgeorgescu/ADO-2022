@@ -7,6 +7,7 @@ import edu.uade.tpo.notificador.Notificador;
 import edu.uade.tpo.pago.PagoRealizado;
 import edu.uade.tpo.pagos.Pago;
 import edu.uade.tpo.personas.Persona;
+import edu.uade.tpo.utils.LogUtil;
 import edu.uade.tpo.utils.SessionUtils;
 import edu.uade.tpo.utils.StrategyUtil;
 
@@ -22,7 +23,7 @@ public class Gestora {
     this.administrador = SessionUtils.getLoggedAdministrator();
   }
 
-  void calcularExpensas() {
+  public void calcularExpensas() {
     System.out.printf("Calculando expensas a pedido de %s%n", administrador.getNombre());
 
     if (criterioPago == null) {
@@ -39,6 +40,8 @@ public class Gestora {
 
 
   public void seleccionarCriterioPago(CriterioPago criterioPago) {
+    new LogUtil().logMessage("se seleccionó %s como criterio de pago", criterioPago.getClass().getSimpleName());
     this.criterioPago = criterioPago;
+
   }
 }

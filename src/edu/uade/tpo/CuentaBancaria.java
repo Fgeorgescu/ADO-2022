@@ -1,5 +1,7 @@
 package edu.uade.tpo;
 
+import edu.uade.tpo.utils.LogUtil;
+
 import java.util.Date;
 
 public class CuentaBancaria {
@@ -17,9 +19,12 @@ public class CuentaBancaria {
 
     public void agregarSaldo(double monto) {
         this.saldo += monto;
+        new LogUtil().logMessage("se agregó %f al saldo. Salto total: %f", monto, this.saldo);
     }
 
     public void restarSaldo(double monto) {
         this.saldo -= monto;
+        new LogUtil().logMessage("se restó %f al saldo. Salto total: %f", monto, this.saldo);
+
     }
 }

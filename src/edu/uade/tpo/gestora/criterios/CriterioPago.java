@@ -10,6 +10,7 @@ import edu.uade.tpo.pagos.Pago;
 import edu.uade.tpo.personas.Persona;
 import edu.uade.tpo.utils.StrategyUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CriterioPago {
@@ -32,11 +33,18 @@ public abstract class CriterioPago {
   public abstract void divisionExpensas(Consorcio consorcio);
 
   void notificar(UnidadFuncional uf, Pago pago) {
-    for (Persona p : uf.getPropietarios()) {
+    List<Persona> personasANotificar = new ArrayList<>(uf.getPropietarios());
+    personasANotificar.addAll(uf.getInquilinos());
+
+    for (Persona p : personasANotificar) {
       notificador.setStrategy(StrategyUtil.getNotificationStrategy(p.getDefecto().getTipoNotificacion()));
 
       // Se puede agregar cuando vence, cuando se generó, etc etc etc
       notificador.enviar(p, "Se registró una nueva expensa por el monto de: " + pago.getMonto());
+    }
+
+    for (Persona p: uf.getInquilinos()) {
+
     }
   }
 

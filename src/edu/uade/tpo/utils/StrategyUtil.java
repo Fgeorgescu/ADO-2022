@@ -10,11 +10,13 @@ import edu.uade.tpo.personas.notificacion.TipoNotificacion;
 //N Se podría reemplazar por un patron o algún otro componente
 public class StrategyUtil {
   public static NotificationStrategy getNotificationStrategy(TipoNotificacion type) {
+    NotificationStrategy strategy;
     switch (type) {
-      case EMAIL -> new EmailNotificationStrategy();
-      case SMS -> new SmsNotificationStrategy();
-      case WHATSAPP -> new WhatsappNotificationStrategy();
+      case EMAIL -> strategy = new EmailNotificationStrategy();
+      case SMS -> strategy = new SmsNotificationStrategy();
+      case WHATSAPP -> strategy = new WhatsappNotificationStrategy();
+      default -> throw new RuntimeException("Invalid TipoNotificación "+ type);
     }
-    throw new RuntimeException("Invalid TipoNotificación "+ type);
+    return strategy;
   }
 }

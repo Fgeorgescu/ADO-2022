@@ -2,6 +2,9 @@ package edu.uade.tpo.personas;
 
 import edu.uade.tpo.personas.notificacion.MedioNotificacion;
 import edu.uade.tpo.personas.notificacion.TipoNotificacion;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +12,7 @@ public class Persona {
   private String email;
   private String telefono;
 
-  private List<MedioNotificacion> mediosNotificacion;
+  private List<MedioNotificacion> mediosNotificacion = new ArrayList<>();
 
   private String nombre;
   private String apellido;

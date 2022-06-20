@@ -3,6 +3,7 @@ package edu.uade.tpo.gestora.criterios;
 import edu.uade.tpo.Consorcio;
 import edu.uade.tpo.UnidadFuncional;
 import edu.uade.tpo.pagos.Pago;
+import edu.uade.tpo.utils.LogUtil;
 
 // Puede ser singleton
 public class PagoCompletoDeGastos extends CriterioPago {
@@ -16,7 +17,7 @@ public class PagoCompletoDeGastos extends CriterioPago {
       double montoExpensa = gasto * porcentaje;
 
       Pago pago = new Pago(montoExpensa);
-
+      new LogUtil().logMessage("el monto a pagar por %s es %f", uf.getId(), montoExpensa);
       uf.agregarPago(pago);
       notificar(uf, pago);
     }

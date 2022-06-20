@@ -5,6 +5,7 @@ import edu.uade.tpo.gastos.GastoRecurrente;
 import edu.uade.tpo.gastos.GastoUnico;
 import edu.uade.tpo.gastos.TipoExpensa;
 import edu.uade.tpo.personas.Persona;
+import edu.uade.tpo.utils.LogUtil;
 import edu.uade.tpo.utils.SessionUtils;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,10 +20,10 @@ public class Consorcio {
   private Periodo periodoActivo;
   private List<Gasto> gastosRecurrentes;
 
-  public Consorcio(String idConsorcio, int cbu) {
+  public Consorcio(String idConsorcio, int cbu, List<UnidadFuncional> unidadesFuncionales) {
     this.idConsorcio = idConsorcio;
     this.cuentaBancaria = new CuentaBancaria(cbu);
-    unidadesFuncionales = new ArrayList<>();
+    this.unidadesFuncionales = unidadesFuncionales;
     periodos = new ArrayList<>();
     gastosRecurrentes = new ArrayList<>();
   }
@@ -56,6 +57,8 @@ public class Consorcio {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
     periodoActivo.agregarGasto(new GastoUnico(nombre, monto, tipoExpensa, persona));
+
+    new LogUtil().logMessage("se agregó gasto único '%s' con monto $%f al período activo", nombre, monto, tipoExpensa.name());
   }
 
   /**
@@ -73,6 +76,9 @@ public class Consorcio {
     }
     agregarGastoUnico(nombre, monto, tipoExpensa);
     this.gastosRecurrentes.add(gastoRecurrente);
+
+
+    new LogUtil().logMessage("se agregó gasto recurrente '%s' con monto $%f al período activo", nombre, monto);
   }
 
   /**
