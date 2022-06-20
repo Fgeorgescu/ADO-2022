@@ -3,7 +3,7 @@ package edu.uade.tpo.gastos;
 import edu.uade.tpo.personas.Persona;
 import java.util.Objects;
 
-public abstract class Gasto {
+public class Gasto {
   private double monto;
   private TipoExpensa tipoExpensa;
   private Persona creador;

@@ -1,8 +1,6 @@
 package edu.uade.tpo;
 
 import edu.uade.tpo.gastos.Gasto;
-import edu.uade.tpo.gastos.GastoRecurrente;
-import edu.uade.tpo.gastos.GastoUnico;
 import edu.uade.tpo.gastos.TipoExpensa;
 import edu.uade.tpo.personas.Persona;
 import edu.uade.tpo.utils.LogUtil;
@@ -56,7 +54,7 @@ public class Consorcio {
     if (periodoActivo == null) abrirPeriodo();
     Persona persona = SessionUtils.getLoggedAdministrator();
 
-    periodoActivo.agregarGasto(new GastoUnico(nombre, monto, tipoExpensa, persona));
+    periodoActivo.agregarGasto(new Gasto(nombre, monto, tipoExpensa, persona));
 
     new LogUtil().logMessage("se agregó gasto único '%s' con monto $%f al período activo", nombre, monto, tipoExpensa.name());
   }
@@ -69,7 +67,7 @@ public class Consorcio {
   public void agregarGastoRecurrente(String nombre, double monto, TipoExpensa tipoExpensa) {
     Persona persona = SessionUtils.getLoggedAdministrator();
 
-    Gasto gastoRecurrente = new GastoRecurrente(nombre, monto, tipoExpensa, persona);
+    Gasto gastoRecurrente = new Gasto(nombre, monto, tipoExpensa, persona);
     if (this.gastosRecurrentes.contains(gastoRecurrente)) {
       System.out.println("Ya se encontró un gasto con las mismas caracteristicas. Evitamos duplicados");
       return;
