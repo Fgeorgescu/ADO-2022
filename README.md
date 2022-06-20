@@ -1,6 +1,11 @@
 # ADO-2022
+## v0.0.3
+- Agregamos la gestora
+- Agregamos criterios de pago
+  ![img.png](./assets/gestora.png)
 
-## v0.02.2
+
+## v0.0.2
 - Agrega el notificador
 - Agregamos estrategias
 - Agregamos adapters de las estrategias
