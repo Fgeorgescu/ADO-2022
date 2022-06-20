@@ -2,11 +2,13 @@ package edu.uade.tpo.personas;
 
 public class Persona {
   private String email;
-  private int telefono;
+  private String telefono;
+  private String nombre;
+  private String apellido;
 
-  private String name;
-
-  public Persona(String email, int telefono) {
+  public Persona(String nombre, String apellido, String email, String telefono) {
+    this.nombre = nombre;
+    this.apellido = apellido;
     this.email = email;
     this.telefono = telefono;
   }
@@ -19,19 +21,19 @@ public class Persona {
     this.email = email;
   }
 
-  public int getTelefono() {
+  public String getTelefono() {
     return telefono;
   }
 
-  public void setTelefono(int telefono) {
+  public void setTelefono(String telefono) {
     this.telefono = telefono;
   }
 
-  public String getName() {
-    return name;
+  public String getNombre() {
+    return nombre;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
   }
 }

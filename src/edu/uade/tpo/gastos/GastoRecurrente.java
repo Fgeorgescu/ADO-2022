@@ -4,7 +4,10 @@ import edu.uade.tpo.personas.Persona;
 
 public class GastoRecurrente extends Gasto {
 
-  public GastoRecurrente(TipoGasto tipoGasto, double monto, TipoExpensa tipoExpensa, Persona creador) {
-    super(tipoGasto, monto, tipoExpensa, creador);
+  public GastoRecurrente(double monto, TipoExpensa tipoExpensa, Persona creador) {
+    super(monto, tipoExpensa, creador);
   }
+
+  // Hacemos override del equals para que se puedan validar gastos recurrentes duplicados.
+
 }

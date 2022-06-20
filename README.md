@@ -37,6 +37,24 @@
 
 ![notificador.png](./assets/notificador.png)
 
+## v0.0.4
+- Agregamos PagoRealizado
+- Agregamos estados de pagos y comportamiento
+
+![estadoPagos.png](./assets/estadoPagos.png)
+## v0.0.3
+- Agregamos la gestora
+- Agregamos criterios de pago
+![gestora.png](./assets/gestora.png)
+
+
+## v0.0.2
+- Agrega el notificador
+- Agregamos estrategias
+- Agregamos adapters de las estrategias
+
+![notificador.png](./assets/notificador.png)
+
 ## v0.0.1
 Iniciamos la construcción de algunas clases:
 - Gasto

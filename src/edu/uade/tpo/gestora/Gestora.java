@@ -16,14 +16,14 @@ public class Gestora {
   }
 
   void calcularExpensas(Persona administrador) {
-    System.out.printf("Calculando expensas a pedido de %s%n", administrador.getName());
+    System.out.printf("Calculando expensas a pedido de %s%n", administrador.getNombre());
 
     // Usar this.consorsio;
     if (criterioPago == null) {
       System.out.println("Por favor, seleccione un criterio para calcular las expensas");
     } else {
       // TODO: Cambiar al último periodo del this.consorsio
-      criterioPago.calcularGasto(new Periodo());
+      criterioPago.calcularGasto(consorcio.getPeriodoActivo());
     }
   }
 
