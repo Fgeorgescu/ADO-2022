@@ -13,12 +13,31 @@ import java.util.Arrays;
 
 public class Main {
 
+    /**
+     * Las tres pruebas son similares, pero indicando distintos criterios de pago.
+     *
+     * Se agregan dos propietarios y un inquilino. Se settean dos unidades funcionales
+     *  UF1:
+     *      - Inquilino 1 que recibe por Whatsapp y Propeitario 1 que recibe por email.
+     *      - % de pago, 0.7
+     *  UF2:
+     *      - Propietario 2 que recibe por SMS.
+     *      - % de pago 0.3%
+     *
+     * Se crea el consorsio y la gestora. Se selecciona un criterio de pago, se agregan 3 gastos
+     *   - "Service ascensor", 2000, Expensa ordinaria
+     *   - "Agua", 10000, Expensa ordinaria
+     *   - "Plantas para el hall", 1500, Expensa extraordinaria
+     *
+     *  Se calculan los gastos y se imprimen por pantalla.
+     *
+     */
     @Test
     void TestCaso1() {
 
         Persona propietario1 = new Persona("Propietario","Primero","propietario1@uade.edu.ar", "+5411111111");
         Persona inquilino1 = new Persona("Inquilino","Primero", "inquilino1@uade.edu.ar", "+5411112222");
-        Persona propietario2 = new Persona("Propietario","Primero","propietario1@uade.edu.ar", "+5411111111");
+        Persona propietario2 = new Persona("Propietario","Segundo","propietario2@uade.edu.ar", "+5422221111");
 
         propietario1.agregarNotificacion(true, TipoNotificacion.EMAIL);
         inquilino1.agregarNotificacion(true, TipoNotificacion.WHATSAPP);
