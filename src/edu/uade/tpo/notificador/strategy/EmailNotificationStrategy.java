@@ -13,7 +13,6 @@ public class EmailNotificationStrategy implements NotificationStrategy {
 
   @Override
   public void enviar(Mensaje mensaje) {
-    // TODO: recuperar el mail
-    adapterEmail.enviar(mensaje.getMensaje(), "email de persona");
+    adapterEmail.enviar(mensaje.getMensaje(), mensaje.getPersona().getEmail());
   }
 }

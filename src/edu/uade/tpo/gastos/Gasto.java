@@ -3,15 +3,17 @@ package edu.uade.tpo.gastos;
 import edu.uade.tpo.personas.Persona;
 import java.util.Objects;
 
-public abstract class Gasto {
+public class Gasto {
   private double monto;
   private TipoExpensa tipoExpensa;
   private Persona creador;
+  private String nombre;
 
-  public Gasto(double monto, TipoExpensa tipoExpensa, Persona creador) {
+  public Gasto(String nombre, double monto, TipoExpensa tipoExpensa, Persona creador) {
     this.monto = monto;
     this.tipoExpensa = tipoExpensa;
     this.creador = creador;
+    this.nombre = nombre;
   }
 
   public double getMonto() {
@@ -44,6 +46,6 @@ public abstract class Gasto {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Gasto gasto = (Gasto) o;
-    return Double.compare(gasto.monto, monto) == 0 && tipoExpensa == gasto.tipoExpensa;
+    return Double.compare(gasto.monto, monto) == 0 && tipoExpensa == gasto.tipoExpensa && nombre == gasto.nombre;
   }
 }

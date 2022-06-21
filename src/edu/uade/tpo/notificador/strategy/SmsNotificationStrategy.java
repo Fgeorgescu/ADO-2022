@@ -14,7 +14,6 @@ public class SmsNotificationStrategy implements NotificationStrategy {
 
   @Override
   public void enviar(Mensaje mensaje) {
-    // TODO: completar con el nro de telefono de la persona
-    adapterSms.enviar(mensaje.getMensaje(), "Nro de telefono");
+    adapterSms.enviar(mensaje.getMensaje(), mensaje.getPersona().getTelefono());
   }
 }

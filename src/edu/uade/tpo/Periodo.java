@@ -20,4 +20,7 @@ public class Periodo {
   public void agregarGasto(Gasto gasto) {
     this.gastos.add(gasto);
   }
+  public List<Gasto> obtenerGastos() {
+    return gastos;
+  }
 }
